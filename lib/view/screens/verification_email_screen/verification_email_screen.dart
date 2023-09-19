@@ -38,7 +38,7 @@ class _VerificationEmailScreenState extends State<VerificationEmailScreen> {
                   margin: const EdgeInsets.only(top: 50, right: 340, left: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
-                    color: Colors.amber.shade100,
+                    color: Colors.amber.shade100.withOpacity(.2),
                   ),
                   child: IconButton(
                     icon: const Icon(
@@ -84,7 +84,7 @@ class _VerificationEmailScreenState extends State<VerificationEmailScreen> {
                   Expanded(
                     child: Card(
                         margin: const EdgeInsets.only(right: 20),
-                        color: Colors.grey.shade200,
+                        color: Colors.grey.shade100.withOpacity(.3),
                         elevation: .5,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
@@ -126,7 +126,7 @@ class _VerificationEmailScreenState extends State<VerificationEmailScreen> {
                     ));
                   }
                 },
-                color: Colors.amber.shade100,
+                color: Colors.amber.shade100.withOpacity(.5),
                 padding: const EdgeInsets.only(
                     top: 10, bottom: 10, left: 80, right: 80),
                 elevation: 0,

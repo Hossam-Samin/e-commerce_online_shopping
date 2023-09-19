@@ -36,7 +36,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
       listener: (context, state) {},
       builder: (context, state) {
         ProfileEditing profileEditingCubit = ProfileEditing.get(context);
-
         return ModalProgressHUD(
           inAsyncCall: isLoading,
           child: Scaffold(
@@ -257,6 +256,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 hintText: S.of(context).description_profile,
                                 onSaved: (value) {
                                   description = value;
+                                },
+                                validation: (value) {
+                                  if (value?.isEmpty ?? true) {
+                                    return 'Please Enter Your User Name';
+                                  } else if (value.length > 32) {
+                                    return 'Name Must be less than 32 characters';
+                                  }
                                 },
                               )),
                         ),
