@@ -147,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       height: 40,
                       width: 40,
-                      margin: const EdgeInsets.only(top: 40, right: 10),
+                      margin: const EdgeInsets.only(top: 40, right: 10,bottom: 2),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
                           color: Colors.grey.withOpacity(.3)),
@@ -220,7 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 60, right: 250),
+                            padding: const EdgeInsets.only(top: 50, right: 250),
                             child: MaterialButton(
                               onPressed: () {},
                               color: Colors.deepPurple.shade100,
