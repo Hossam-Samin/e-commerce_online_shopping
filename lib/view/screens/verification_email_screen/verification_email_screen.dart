@@ -100,14 +100,22 @@ class _VerificationEmailScreenState extends State<VerificationEmailScreen> {
               const SizedBox(height: 50),
               MaterialButton(
                 onPressed: () async {
-                  myAuth.setConfig(
+                  EmailOTP.config(
                     appEmail: "hossam@gmail.com",
                     appName: "E-Mail OTP",
                     otpLength: 4,
-                    userEmail: userEmailController.text,
-                    otpType: OTPType.digitsOnly,
+                    emailTheme: EmailTheme.v1,
+                    otpType: OTPType.numeric,
+                    expiry: 15,
                   );
-                  if (await myAuth.sendOTP() == true) {
+                  // setConfig(
+                  //   appEmail: "hossam@gmail.com",
+                  //   appName: "E-Mail OTP",
+                  //   otpLength: 4,
+                  //   userEmail: userEmailController.text,
+                  //   otpType: OTPType.digitsOnly,
+                  // );
+                  if (await EmailOTP.sendOTP(email: userEmailController.text) == true) {
                     // ignore: use_build_context_synchronously
                     ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       content: Text("OTP has been sent"),
@@ -117,7 +125,7 @@ class _VerificationEmailScreenState extends State<VerificationEmailScreen> {
                         context,
                         MaterialPageRoute(
                             builder: (context) => OtpScreen(
-                                  myauth: myAuth,
+                                  myAuth: myAuth,
                                 )));
                   } else {
                     // ignore: use_build_context_synchronously

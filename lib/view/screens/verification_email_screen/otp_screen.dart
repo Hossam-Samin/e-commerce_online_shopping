@@ -44,8 +44,8 @@ class OTPVrified extends StatelessWidget {
 }
 
 class OtpScreen extends StatefulWidget {
-  const OtpScreen({Key? key, required this.myauth}) : super(key: key);
-  final EmailOTP myauth;
+   OtpScreen({super.key, required this.myAuth});
+   EmailOTP myAuth = EmailOTP();
   @override
   State<OtpScreen> createState() => _OtpScreenState();
 }
@@ -99,12 +99,11 @@ class _OtpScreenState extends State<OtpScreen> {
             const SizedBox(height: 40),
             MaterialButton(
               onPressed: () async {
-                if (await widget.myauth.verifyOTP(
+                if (await EmailOTP.verifyOTP(
                         otp: otp1Controller.text +
                             otp2Controller.text +
                             otp3Controller.text +
-                            otp4Controller.text) ==
-                    true) {
+                            otp4Controller.text) == true) {
                   // ignore: use_build_context_synchronously
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                     content: Text("OTP is verified"),
